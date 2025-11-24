@@ -1124,9 +1124,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     (dragleave)="onDragLeaveSelected($event)"
                   >
                     <!-- Selected Feature Cards -->
-                    <div
-                      class="flex flex-wrap gap-6 w-full"
-                    >
+                    <div class="flex flex-wrap gap-6 w-full">
                       <div
                         *ngFor="let featureId of activeFeatures"
                         draggable="true"
@@ -1135,8 +1133,8 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                         class="flex flex-col items-center gap-2 p-4 w-[120px] h-[120px] rounded border border-[#049AD0] shadow-[0_4px_15px_rgba(30,30,45,0.05)] bg-white transition-all hover:shadow-md cursor-move"
                       >
                         <div
-                        class="relative w-full flex-1 flex items-center justify-center"
-                      >
+                          class="relative w-full flex-1 flex items-center justify-center"
+                        >
                           <div
                             [innerHTML]="getFeatureIcon(featureId)"
                             class="w-8 h-8"
@@ -1663,7 +1661,8 @@ export class EventSetupComponent implements OnInit {
 
   getFeatureIcon(featureId: string): SafeHtml {
     if (featureId === "schedule") {
-      return this.getSafeHtml(`<svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      return this
+        .getSafeHtml(`<svg class="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M28.25 2.5H26.75V0H24.25V2.5H7.75V0H5.25V2.5H3.75C1.68225 2.5 0 4.18225 0 6.25V28.25C0 30.3177 1.68225 32 3.75 32H28.25C30.3177 32 32 30.3177 32 28.25V6.25C32 4.18225 30.3177 2.5 28.25 2.5ZM29.5 28.25C29.5 28.9393 28.9393 29.5 28.25 29.5H3.75C3.06075 29.5 2.5 28.9393 2.5 28.25V11.75H29.5V28.25ZM29.5 9.25H2.5V6.25C2.5 5.56075 3.06075 5 3.75 5H5.25V7.5H7.75V5H24.25V7.5H26.75V5H28.25C28.9393 5 29.5 5.56075 29.5 6.25V9.25Z" fill="#049AD0"/>
         <path d="M7.25 14.375H4.75V16.875H7.25V14.375Z" fill="#049AD0"/>
         <path d="M12.25 14.375H9.75V16.875H12.25V14.375Z" fill="#049AD0"/>
@@ -1683,7 +1682,7 @@ export class EventSetupComponent implements OnInit {
     }
     const feature = this.inactiveFeatures.find((f) => f.id === featureId);
     if (feature) {
-      const iconWithBlueColor = feature.icon.replace(/#686868/g, '#049AD0');
+      const iconWithBlueColor = feature.icon.replace(/#686868/g, "#049AD0");
       return this.getSafeHtml(iconWithBlueColor);
     }
     return this.getSafeHtml("");
