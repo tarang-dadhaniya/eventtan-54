@@ -2550,6 +2550,9 @@ export class EventSetupComponent implements OnInit {
     if (this.scheduleToDelete) {
       this.scheduleService.deleteSchedule(this.scheduleToDelete);
       this.loadSchedules();
+    } else if (this.exhibitorToDelete) {
+      this.exhibitorService.deleteExhibitor(this.exhibitorToDelete);
+      this.loadExhibitors();
     }
     this.closeDeleteModal();
   }
@@ -2557,6 +2560,7 @@ export class EventSetupComponent implements OnInit {
   closeDeleteModal() {
     this.isDeleteModalOpen = false;
     this.scheduleToDelete = null;
+    this.exhibitorToDelete = null;
   }
 
   formatDate(dateString: string): string {
