@@ -2563,6 +2563,46 @@ export class EventSetupComponent implements OnInit {
     this.exhibitorToDelete = null;
   }
 
+  openExhibitorModal() {
+    this.editModeExhibitor = false;
+    this.editingExhibitor = null;
+    this.isExhibitorModalOpen = true;
+  }
+
+  closeExhibitorModal() {
+    this.isExhibitorModalOpen = false;
+    this.editModeExhibitor = false;
+    this.editingExhibitor = null;
+  }
+
+  onExhibitorSave(exhibitorData: any) {
+    if (this.editModeExhibitor && this.editingExhibitor) {
+      this.exhibitorService.updateExhibitor(
+        this.editingExhibitor.id,
+        exhibitorData,
+      );
+    } else {
+      this.exhibitorService.addExhibitor(this.eventId, exhibitorData);
+    }
+    this.loadExhibitors();
+    this.closeExhibitorModal();
+  }
+
+  loadExhibitors() {
+    this.exhibitors = this.exhibitorService.getExhibitorsByEvent(this.eventId);
+  }
+
+  editExhibitor(exhibitor: Exhibitor) {
+    this.editModeExhibitor = true;
+    this.editingExhibitor = exhibitor;
+    this.isExhibitorModalOpen = true;
+  }
+
+  deleteExhibitor(id: string) {
+    this.exhibitorToDelete = id;
+    this.isDeleteModalOpen = true;
+  }
+
   formatDate(dateString: string): string {
     if (!dateString) return "";
     const date = new Date(dateString);
