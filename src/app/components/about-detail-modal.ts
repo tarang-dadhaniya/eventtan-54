@@ -295,7 +295,7 @@ import { FormsModule } from "@angular/forms";
   `,
   styles: [],
 })
-export class AboutDetailModalComponent {
+export class AboutDetailModalComponent implements OnInit, OnChanges {
   @Input() isOpen = false;
   @Input() initialTitle: string = "";
   @Input() initialDescription: string = "";
