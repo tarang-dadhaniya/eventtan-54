@@ -386,7 +386,9 @@ import { FormsModule } from "@angular/forms";
             </div>
 
             <div
-              *ngIf="formData.socialMedia.blogRss || formData.socialMedia.facebook"
+              *ngIf="
+                formData.socialMedia.blogRss || formData.socialMedia.facebook
+              "
               class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
             >
               <div *ngIf="formData.socialMedia.blogRss">
@@ -780,7 +782,9 @@ import { FormsModule } from "@angular/forms";
             </div>
           </div>
 
-          <div class="flex-shrink-0 flex items-center justify-center gap-4 px-[30px] py-6 border-t border-[#CED4DA]">
+          <div
+            class="flex-shrink-0 flex items-center justify-center gap-4 px-[30px] py-6 border-t border-[#CED4DA]"
+          >
             <button
               type="button"
               (click)="onCancel()"
