@@ -3079,33 +3079,36 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                       <div
                         *ngIf="galleryImages.length > 0"
-                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                        class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
                       >
                         <div
                           *ngFor="let image of galleryImages"
-                          class="bg-white border border-[#E7E7E7] rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                          class="flex flex-col"
                         >
-                          <!-- Image -->
-                          <div class="relative w-full h-40 bg-gray-100 overflow-hidden">
-                            <img
-                              [src]="image.imageUrl"
-                              [alt]="image.title"
-                              class="w-full h-full object-cover"
-                            />
+                          <!-- Image Card -->
+                          <div class="relative w-full bg-white border border-[#E7E7E7] rounded-[4px] overflow-hidden group">
+                            <div class="aspect-square bg-gray-100 overflow-hidden">
+                              <img
+                                [src]="image.imageUrl"
+                                [alt]="image.title"
+                                class="w-full h-full object-cover"
+                              />
+                            </div>
 
                             <!-- Actions Overlay -->
                             <div
-                              class="absolute top-2 right-2 flex gap-2"
+                              class="absolute top-2 right-2 flex gap-1"
                             >
                               <!-- Edit Button -->
                               <button
                                 (click)="editGalleryImage(image)"
-                                class="w-9 h-9 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center transition-shadow"
+                                class="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-all"
+                                style="filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));"
                                 aria-label="Edit image"
                               >
                                 <svg
-                                  width="18"
-                                  height="18"
+                                  width="16"
+                                  height="16"
                                   viewBox="0 0 18 18"
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
@@ -3122,12 +3125,13 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                               <!-- Delete Button -->
                               <button
                                 (click)="deleteGalleryImage(image.id)"
-                                class="w-9 h-9 rounded-full bg-[#BF0505] hover:bg-[#a00404] flex items-center justify-center transition-colors shadow-md hover:shadow-lg"
+                                class="w-8 h-8 rounded-full bg-[#BF0505] flex items-center justify-center transition-all"
+                                style="filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));"
                                 aria-label="Delete image"
                               >
                                 <svg
-                                  width="18"
-                                  height="18"
+                                  width="16"
+                                  height="16"
                                   viewBox="0 0 18 18"
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
@@ -3161,13 +3165,13 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                           </div>
 
                           <!-- Image Info -->
-                          <div class="p-4">
-                            <h3 class="text-base font-semibold text-[#282A36] mb-2 line-clamp-2">
+                          <div class="pt-3">
+                            <h3 class="text-sm font-medium text-[#282A36] line-clamp-2">
                               {{ image.title }}
                             </h3>
                             <p
                               *ngIf="image.caption"
-                              class="text-sm text-[#686868] line-clamp-2"
+                              class="text-xs text-[#686868] mt-1 line-clamp-1"
                             >
                               {{ image.caption }}
                             </p>
