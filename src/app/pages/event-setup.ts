@@ -2026,11 +2026,12 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                         </svg>
                         Edit Content
                       </button>
+                      </div>
                     </div>
 
                     <!-- Content -->
                     <div
-                      class="px-6 md:px-8 py-6 max-h-[400px] overflow-y-auto"
+                      class="px-6 py-4 max-h-[400px] overflow-y-auto"
                     >
                       <p
                         class="text-sm md:text-base text-[#353846] leading-6 md:leading-7 whitespace-pre-wrap"
