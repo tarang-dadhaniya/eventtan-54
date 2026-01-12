@@ -1094,7 +1094,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     draggable="true"
                     (dragstart)="onDragStartFeature($event, feature.id)"
                     (dragend)="onDragEndFeature($event)"
-                    class="feature-card flex flex-col items-center gap-2 p-4 rounded border border-[#CED4DA] shadow-sm transition-all hover:shadow-md hover:border-[#049AD0] bg-white cursor-grab active:cursor-grabbing"
+                    class="feature-card flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 rounded border border-[#CED4DA] shadow-sm transition-all hover:shadow-md hover:border-[#049AD0] bg-white cursor-grab active:cursor-grabbing"
                   >
                     <div class="relative w-full">
                       <div
