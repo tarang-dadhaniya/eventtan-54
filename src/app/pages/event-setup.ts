@@ -153,11 +153,11 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
           <div class="px-4 lg:px-8 py-6 lg:py-8">
             <div class="max-w-[1366px] mx-auto">
               <!-- Tab Navigation -->
-              <div class="flex items-center justify-center gap-0 mb-8">
+              <div class="flex items-center justify-center gap-0 mb-6 sm:mb-8 flex-wrap">
                 <button
                   (click)="currentTab = 'details'"
                   [class.active]="currentTab === 'details'"
-                  class="tab-button relative flex items-center gap-2 px-6 md:px-10 py-2.5 bg-white border border-[#009FD8] rounded shadow-sm transition-all"
+                  class="tab-button relative flex items-center gap-1 sm:gap-2 px-3 sm:px-6 md:px-10 py-2 sm:py-2.5 text-xs sm:text-sm md:text-base bg-white border border-[#009FD8] rounded shadow-sm transition-all"
                   [ngClass]="{
                     'bg-[#009FD8] text-white': currentTab === 'details',
                     'bg-white text-[#049AD0]': currentTab !== 'details',
